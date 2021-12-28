@@ -146,7 +146,7 @@ heroku config:set
 > No retorno do comendo `heroku create` copiar a url sem `https://` e utilizar:
 
 ```shell
-heroku config:set ALLOWED_HOSTS=intense-ocean-19905.herokuapp.com
+heroku config:set ALLOWED_HOSTS=blograul.herokuapp.com
 ```
 
 ## 🔖 DJANGO_SETTINGS_MODULE
