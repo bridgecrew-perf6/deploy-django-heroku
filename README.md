@@ -30,7 +30,7 @@ Conteúdo arquivo `heroku.py`:
 ```python
     import environ
 
-    from aeroclube.settings.base import *
+    from blog.settings.base import *
 
     env = environ.Env()
 
@@ -72,7 +72,6 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'blog.settings.base')
 
 > 7. No arquivo `base.py`:
 
-
 alterar:
 
 ```python
@@ -86,8 +85,132 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 # WhiteNoise
 
-> É usado para servir os arquivos estáticos
-
-> Seguir documentação apenas
+> É usado para servir os arquivos estáticos, para configurar pasta seguir a documentação.
 
 > [Documentação](http://whitenoise.evans.io/en/stable/index.html)
+
+```shell
+pip install whitenoise --upgrade
+```
+
+# Requirements
+
+```shell
+pip install .\requirements.txt
+```
+
+## guricorn
+
+> Servidor recomendado para rodar aplicações no servidor Heroku
+
+## psycopg2
+
+> Adaptador de PostgreSQL para Python Django
+
+# Criar arquivos
+
+1. Criar arquivo `runtime.txt`
+
+> Específica a versão do python que será rodada
+
+2. Criar arquivo `Procfile`
+
+> Específica os comandos que serão rodados ao iniciar nossa aplicação
+
+# Heroku CLI
+
+1. Abrir powerShell na pasta do projeto
+
+2. Fazer login no heroku
+
+```shell
+heroku login
+```
+
+3. Criar app no heroku
+
+```shell
+heroku create
+```
+
+## Variáveis de ambiente
+
+> Configurar variáveis de ambiente
+
+```shell
+heroku config:set
+```
+
+## 🔖 ALLOWED_HOSTS
+
+> No retorno do comendo `heroku create` copiar a url sem `https://` e utilizar:
+
+```shell
+heroku config:set ALLOWED_HOSTS=intense-ocean-19905.herokuapp.com
+```
+
+## 🔖 DJANGO_SETTINGS_MODULE
+
+```shell
+heroku config:set DJANGO_SETTINGS_MODULE=blog.settings.heroku
+```
+
+## 🔖 SECRET_KEY
+
+```shell
+heroku config:set SECRET_KEY=Jak@LDDf^1uCJoLLmhjh^Wizp4hz
+```
+
+## 🔖 DEBUG
+
+```shell
+heroku config:set DEBUG=False
+```
+
+## 🔖 DISABLE_COLLECTSTATIC
+
+```shell
+heroku config:set DISABLE_COLLECTSTATIC=1
+```
+
+# Criar banco de dados Postgres
+
+```shell
+heroku addons:create heroku-postgresql:hobby-dev
+```
+
+# Colocar aplicação no ar
+
+```shell
+git push heroku main
+```
+
+# 👨‍💻 Acessando aplicação
+
+```shell
+heroku open
+```
+
+# Criando super usuário
+
+```shell
+heroku run python manage.py createsuperuser
+```
+
+> ou
+
+```shell
+heroku run bash
+```
+
+# Heroku Dashboard
+
+- [Apps](https://dashboard.heroku.com/apps/)
+
+# Alterar nome aplicação
+
+[Alterar em configurações](https://dashboard.heroku.com/apps/blograul/settings)
+
+```shell
+heroku git:remote -a newname
+```
