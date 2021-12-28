@@ -18,8 +18,11 @@ Settings
 [The Twelve-Factor App](https://12factor.net/pt_br/)
 
 > 1. Criar pasta `settings` em `blog/`
+
 > 2. Mover `settings.py` para a pasta criada
+
 > 3. Renomear `settings.py` para `base.py`
+
 > 4. Criar novo arquivo chamado `heroku.py`
 
 Conteúdo arquivo `heroku.py`:
@@ -83,3 +86,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 # WhiteNoise
 
+> É usado para servir os arquivos estáticos
+
+> Seguir documentação apenas
+
+> [Documentação](http://whitenoise.evans.io/en/stable/index.html)
