@@ -89,23 +89,58 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 > [Documentação](http://whitenoise.evans.io/en/stable/index.html)
 
+> Adicionar em `settings.py`:
+
+```python
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+```
+
+
 ```shell
 pip install whitenoise --upgrade
 ```
 
-# Requirements
-
-```shell
-pip install .\requirements.txt
-```
-
-## guricorn
+## gunicorn
 
 > Servidor recomendado para rodar aplicações no servidor Heroku
+
+```python
+pip install gunicorn
+```
 
 ## psycopg2
 
 > Adaptador de PostgreSQL para Python Django
+
+## Django on Heroku
+
+> Instalar biblioteca
+
+```python
+pip install django-on-heroku
+```
+
+Adicione no início do arquivo `base.py`
+
+```python
+import django_on_heroku
+```
+
+Adicione ao final do arquivo `base.py`
+
+```python
+django_on_heroku.settings(locals())
+```
+
+> Remover
+
+# Requirements
+
+```shell
+pip freeze > .\requirements.txt
+```
 
 # Criar arquivos
 
