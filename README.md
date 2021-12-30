@@ -134,8 +134,6 @@ Adicione ao final do arquivo `base.py`
 django_on_heroku.settings(locals())
 ```
 
-> Remover
-
 # Requirements
 
 ```shell

@@ -10,7 +10,7 @@ class Comentario(models.Model):
     comentario = models.TextField(verbose_name='Comentário')
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     usuario = models.ForeignKey(User, on_delete=models.DO_NOTHING, verbose_name='Usuário', blank=True, null=True)
-    data = models.DateTimeField(default=datetime.now())
+    data = models.DateTimeField(auto_now_add=True)
     publicado = models.BooleanField(default=False)
 
     def __str__(self):
