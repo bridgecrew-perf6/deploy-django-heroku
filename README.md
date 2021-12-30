@@ -17,7 +17,7 @@ Settings
 
 [The Twelve-Factor App](https://12factor.net/pt_br/)
 
-> 1. Criar pasta `settings` em `blog/`
+> 1. Criar pasta `settings` em `<project name>/`
 
 > 2. Mover `settings.py` para a pasta criada
 
@@ -30,7 +30,7 @@ Conteúdo arquivo `heroku.py`:
 ```python
     import environ
 
-    from blog.settings.base import *
+    from <project name>.settings.base import *
 
     env = environ.Env()
 
@@ -62,12 +62,12 @@ pip install django-environ
 alterar:
 
 ```python
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'blog.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', '<project name>.settings')
 ```
 
 para:
 ```python
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'blog.settings.base')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', '<project name>.settings.base')
 ```
 
 > 7. No arquivo `base.py`:
@@ -157,7 +157,7 @@ python-3.10.1
 ```txt
 release: python3 manage.py migrate
 
-web: gunicorn base.wsgi --preload --log-file –
+web: gunicorn <project name>.wsgi --preload --log-file –
 ```
 
 # Heroku CLI
@@ -189,13 +189,13 @@ heroku config:set
 > No retorno do comendo `heroku create` copiar a url sem `https://` e utilizar:
 
 ```shell
-heroku config:set ALLOWED_HOSTS=blograul.herokuapp.com
+heroku config:set ALLOWED_HOSTS=<url>
 ```
 
 ## 🔖 DJANGO_SETTINGS_MODULE
 
 ```shell
-heroku config:set DJANGO_SETTINGS_MODULE=blog.settings.heroku
+heroku config:set DJANGO_SETTINGS_MODULE=<project name>.settings.heroku
 ```
 
 ## 🔖 SECRET_KEY
@@ -252,7 +252,7 @@ heroku run bash
 
 # Alterar nome aplicação
 
-[Alterar em configurações](https://dashboard.heroku.com/apps/blograul/settings)
+[Alterar em configurações](https://dashboard.heroku.com/apps/<project name>/settings)
 
 ```shell
 heroku git:remote -a newname
