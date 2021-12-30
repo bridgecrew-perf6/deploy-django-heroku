@@ -56,7 +56,7 @@ Sobrescrevendo as variáveis locais.
 pip install django-environ
 ```
 
-> 6. No arquivo `wsgi.py` e `manage.py`:
+> 6. No arquivo `manage.py`:
 
 
 alterar:
@@ -144,13 +144,23 @@ pip freeze > .\requirements.txt
 
 # Criar arquivos
 
-1. Criar arquivo `runtime.txt`
+1. Criar arquivo `runtime.txt` contendo:
+
+```txt
+python-3.10.1
+```
 
 > Específica a versão do python que será rodada
 
-2. Criar arquivo `Procfile`
+2. Criar arquivo `Procfile` contendo:
 
 > Específica os comandos que serão rodados ao iniciar nossa aplicação
+
+```txt
+release: python3 manage.py migrate
+
+web: gunicorn base.wsgi --preload --log-file –
+```
 
 # Heroku CLI
 
