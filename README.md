@@ -104,6 +104,8 @@ pip install whitenoise --upgrade
 
 ## gunicorn
 
+> WSGI HTTP Server para UNIX
+
 > Servidor recomendado para rodar aplicações no servidor Heroku
 
 ```python
@@ -112,11 +114,11 @@ pip install gunicorn
 
 ## psycopg2
 
-> Adaptador de PostgreSQL para Python Django
+> Adaptador de banco de dados Python-PostgreSQL
 
 ## Django on Heroku
 
-> Instalar biblioteca
+> Este pacote simplifica a execução de um aplicativo Django na plataforma Heroku.
 
 ```python
 pip install django-on-heroku
